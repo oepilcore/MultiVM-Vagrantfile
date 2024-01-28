@@ -2,6 +2,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "nginx" do |nginx|
       nginx.vm.box = "ubuntu/focal64"
       nginx.vm.network "private_network", ip: "192.168.50.10"
+      nginx.vm.network "public_network"
       nginx.vm.hostname = "nginx"
       nginx.vm.provision "shell", inline: <<-SHELL
         # Provisioning script for nginx server
